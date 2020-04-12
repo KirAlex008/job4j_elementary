@@ -1,0 +1,16 @@
+package ru.job4j.condition;
+
+import org.junit.Test;
+import org.junit.Assert;
+
+public class SqAreaTest {
+
+    @Test
+    public void whenP6andK2ThenSquare2() {
+        int in1 = 6;
+        int in2 = 2;
+        int expected = 2;
+        double out = SqArea.square(6, 2);
+        Assert.assertEquals(expected, out, 0.01);
+    }
+}
