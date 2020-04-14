@@ -20,8 +20,8 @@ public class DummyBot {
         System.out.println("Привет, Бот.");
         System.out.println(DummyBot.answer("Привет, Бот."));
 
-        System.out.println("Который час?");
-        System.out.println(DummyBot.answer("Который час?"));
+        System.out.println("Сколько будет 2 + 2?");
+        System.out.println(DummyBot.answer("Сколько будет 2 + 2?"));
 
         System.out.println("Пока.");
         System.out.println(DummyBot.answer("Пока."));
