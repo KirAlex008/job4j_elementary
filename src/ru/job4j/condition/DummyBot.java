@@ -1,21 +1,17 @@
 package ru.job4j.condition;
 
-public class DummyBot {
-    public static String answer(String question) {
-        String rsl = "";
-        if ("Привет, Бот.".equals(question)) {
-            rsl = "Привет, умник.";
-            //return rsl;
-        }
-        if ("Пока.".equals(question)) {
-            rsl = "До скорой встречи.";
-            //return rsl;
+    public class DummyBot {
 
-        } else {
-            rsl = "Это ставит меня в тупик. Задайте другой вопрос.";
+        public static String answer(String question) {
+            String rsl = "Это ставит меня в тупик. Задайте другой вопрос.";
+            if ("Привет, Бот.".equals(question)) {
+                // заменить ... на правильный ответ rsl = "ответ по заданию".
+                rsl = "Привет, умник.";
+            } else if ("Пока.".equals(question)) {
+                rsl = "До скорой встречи.";
+                            }
+            return rsl;
         }
-        return rsl;
-    }
 
     public static void main(String[] args) {
         System.out.println("Привет, Бот.");
