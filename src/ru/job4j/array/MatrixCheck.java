@@ -13,7 +13,7 @@ public class MatrixCheck {
     }
         public static boolean monoVertical(char[][] board, int column) {
             boolean result = true;
-            int weight = board.length / column;
+            int weight = board.length;
             for (int i = 0; i < weight; i++) {
                 if ('X' != board[i][column]) {
                     result = false;
@@ -30,4 +30,17 @@ public class MatrixCheck {
         }
         return rsl;
     }
+    public static boolean isWin(char[][] board) {
+        boolean result = false;
+        char[] diag = MatrixCheck.extractDiagonal(board);
+        for (int i = 0; i < 3; i++) {
+            if ((diag[i] == 'X') & ((monoHorizontal(board, i) || monoVertical(board, i)))) {
+                result = true;
+                break;
+            }
+            }
+        return result;
+        }
+
+
 }
