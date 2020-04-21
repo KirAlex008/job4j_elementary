@@ -32,7 +32,7 @@ public class MatrixCheck {
         boolean result = false;
         char[] diag = MatrixCheck.extractDiagonal(board);
         for (int i = 0; i < 3; i++) {
-            if ((diag[i] == 'X') & ((monoHorizontal(board, i) || monoVertical(board, i)))) {
+            if ((diag[i] == 'X') && ((monoHorizontal(board, i) || monoVertical(board, i)))) {
                 result = true;
                 break;
             }
