@@ -19,7 +19,6 @@ public class MatrixCheck {
                     break;
                 }
             }
-
         return result;
     }
     public static char[] extractDiagonal(char[][] board) {
@@ -37,9 +36,7 @@ public class MatrixCheck {
                 result = true;
                 break;
             }
-            }
+        }
         return result;
         }
-
-
 }
