@@ -11,7 +11,7 @@ public class Battery {
         another.load = another.load * 2;
     }
     public static void main(String[] args) {
-        Battery battery1 = new Battery(100);
+        Battery battery1 = new Battery(140);
         Battery battery2 = new Battery(60);
         battery1.exchange(battery2);
         System.out.println("Battery 1 has: " + battery1.load);
