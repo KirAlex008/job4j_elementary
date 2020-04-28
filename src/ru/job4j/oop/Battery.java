@@ -7,8 +7,8 @@ public class Battery {
         this.load = size;
     }
     public void exchange(Battery another) {
-        this.load = this.load - another.load;
-        another.load = another.load * 2;
+        another.load = another.load + this.load;
+        this.load = 0;
     }
     public static void main(String[] args) {
         Battery battery1 = new Battery(140);
