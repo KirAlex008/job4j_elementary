@@ -16,6 +16,20 @@ public class Library {
             System.out.println("Book " + shelf[i].getName() + " contains " + shelf[i].getPages() + " pages.");
         }
 
+        Book book0 = new Book("000", 0);
+        book0 = book4;
+        book4 = book1;
+        book1 = book0;
+
+        shelf[0] = book1;
+        shelf[1] = book2;
+        shelf[2] = book3;
+        shelf[3] = book4;
+
+        for (int i = 0; i < shelf.length; i++) {
+            System.out.println("Book " + shelf[i].getName() + " contains " + shelf[i].getPages() + " pages.");
+        }
+
         for (int i = 0; i < shelf.length; i++) {
             if (shelf[i].getName() == "Clean code") {
                 System.out.println("Not only  " + shelf[i].getName() + " contains " + shelf[i].getPages() + " pages.");
