@@ -27,6 +27,17 @@ public class Tracker {
         return item;
     }
 
+    private int indexOf(String id) {
+        int rsl = -1;
+        for (int index = 0; index < position; index++) {
+            if (items[index].getId().equals(id)) {
+                rsl = index;
+                break;
+            }
+        }
+        return rsl;
+    }
+
     public Item[] findAll() {
         Item[] forback = new Item[position];
         int size = 0;
@@ -54,15 +65,16 @@ public class Tracker {
     }
 
         public Item findById(String id) {
-            Item rsl = new Item();
-            for (int index = 0; index < items.length; index++) {
-                if (items[index].getId().equals(id)) {
-                    rsl =  items[index];
-                    break;
-                }
-            }
-            return rsl;
+            int index = indexOf(id);
+            return index != -1 ? items[index] : null;
         }
+
+    public boolean replace(String id, Item item) {
+        int index = indexOf(id);
+        item.setId(id);
+        items[index] = item;
+        return index != -1 ? true : false;
+    }
 
         /**
          * Метод генерирует уникальный ключ для заявки.
