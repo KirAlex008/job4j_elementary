@@ -4,6 +4,7 @@ import org.junit.Test;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.IsNull.nullValue;
+import static org.junit.Assert.*;
 
 public class TrackerTest {
 
@@ -21,13 +22,17 @@ public class TrackerTest {
         tracker.add(item4);
         tracker.add(item5);
         //tracker.findAll();
-        Item[] test = new Item[3];
+        tracker.findAll();
+        Item[] forTest = new Item[tracker.getPosition()];
+        Item[] test = new Item[tracker.getPosition()];
         test = tracker.findAll();
-        Item[] forTest = new Item[3];
         forTest[0] = item1;
-        forTest[1] = item3;
-        forTest[2] = item4;
-        assertThat(test, is(forTest));
+        forTest[1] = item2;
+        forTest[2] = item3;
+        forTest[3] = item4;
+        forTest[4] = item5;
+        assertArrayEquals(test, forTest);
+
     }
 
     @Test

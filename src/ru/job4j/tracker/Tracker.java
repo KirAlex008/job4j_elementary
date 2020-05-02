@@ -39,16 +39,7 @@ public class Tracker {
     }
 
     public Item[] findAll() {
-        Item[] forback = new Item[position];
-        int size = 0;
-        for (int index = 0; index < position; index++) {
-            if ((items[index].getName() != null)) {
-                forback[size] = items[index];
-                size++;
-            }
-        }
-        forback = Arrays.copyOf(forback, size);
-        return forback;
+        return Arrays.copyOf(items, position);
     }
 
         public Item[] findByName(String key) {
@@ -64,10 +55,16 @@ public class Tracker {
         return forback;
     }
 
-        public Item findById(String id) {
-            int index = indexOf(id);
-            return index != -1 ? items[index] : null;
+    public Item findById(String id) {
+        Item rsl = null;
+        for (int index = 0; index < items.length; index++) {
+            if (items[index].getId().equals(id)) {
+                rsl =  items[index];
+                break;
+            }
         }
+        return rsl;
+    }
 
     public boolean replace(String id, Item item) {
         int index = indexOf(id);
