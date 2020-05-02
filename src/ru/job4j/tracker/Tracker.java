@@ -55,16 +55,10 @@ public class Tracker {
         return forback;
     }
 
-    public Item findById(String id) {
-        Item rsl = null;
-        for (int index = 0; index < items.length; index++) {
-            if (items[index].getId().equals(id)) {
-                rsl =  items[index];
-                break;
-            }
+        public Item findById(String id) {
+            int index = indexOf(id);
+            return index != -1 ? items[index] : null;
         }
-        return rsl;
-    }
 
     public boolean replace(String id, Item item) {
         int index = indexOf(id);
