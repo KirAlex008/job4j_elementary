@@ -15,8 +15,7 @@ public class StartUI {
                 tracker.add(item);
             } else if (select == 1) {
                 System.out.println("=== Show all items ====");
-                Item[] allItem;
-                allItem = tracker.findAll();
+                Item[] allItem = tracker.findAll();
                 for (int i = 0; i < allItem.length; i++) {
                     System.out.println(i + ". " + allItem[i].getName());
                 }
@@ -29,13 +28,19 @@ public class StartUI {
                 for (int i = 0; i < allItem.length; i++) {
                     System.out.println(i + ". " + allItem[i].getName());
                 }
+
             } else if (select == 3) {
                 System.out.println("=== Find Item by Name ====");
                 //System.out.print("Enter id: ");
                 String name = input.askStr("Enter id: ");
-                Item allItem;
-                allItem = tracker.findById(name);
-                System.out.println(allItem.getName());
+                Item allItem = tracker.findById(name);
+                if (allItem == null) {
+                    System.out.print("Item not exist.");
+                }
+                if (allItem != null) {
+                    System.out.println(allItem.getName());
+                }
+
             } else if (select == 4) {
                 System.out.println("=== Replace Item ====");
                 //System.out.print("Enter name: ");
@@ -43,7 +48,6 @@ public class StartUI {
                 Item newItem = new Item(name);
                 //System.out.print("Enter id: ");
                 String id = input.askStr("Enter id: ");
-                tracker.replace(id, newItem);
                 if (tracker.replace(id, newItem)) {
                     System.out.println("Replace");
                 } else {
@@ -54,7 +58,6 @@ public class StartUI {
                 System.out.println("=== Delete Item ====");
                 System.out.print("Enter id: ");
                 String id = input.askStr("Enter id: ");
-                tracker.delete(id);
                 if (tracker.delete(id)) {
                     System.out.println("Delete");
                 } else {
