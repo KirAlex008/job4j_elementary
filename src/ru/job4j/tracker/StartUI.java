@@ -20,8 +20,7 @@ public class StartUI {
     public static void findItembyName(Input input, Tracker tracker) {
         System.out.println("=== Find Item by Name ====");
         String name = input.askStr("Enter name: ");
-        Item[] allItem;
-        allItem = tracker.findByName(name);
+        Item[] allItem = tracker.findByName(name);
         for (int i = 0; i < allItem.length; i++) {
             System.out.println(i + ". " + allItem[i].getName());
         }
