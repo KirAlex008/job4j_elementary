@@ -1,0 +1,20 @@
+package ru.job4j.tracker;
+
+import org.junit.Test;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.*;
+
+public class StartUITest {
+    @Test
+    public void whenAddItem() {
+        String[] answers = {"Fix PC", "Fix PC2", "Fix PC3" };
+        Input input = new StubInput(answers);
+        Tracker tracker = new Tracker();
+        StartUI.createItem(input, tracker);
+        StartUI.createItem(input, tracker);
+        StartUI.createItem(input, tracker);
+        Item created = tracker.findAll()[2];
+        Item expected = new Item("Fix PC3");
+        assertThat(created.getName(), is(expected.getName()));
+    }
+}
