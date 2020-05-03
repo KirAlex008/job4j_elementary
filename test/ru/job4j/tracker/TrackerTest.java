@@ -5,6 +5,8 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.IsNull.nullValue;
 import static org.junit.Assert.*;
+import org.hamcrest.core.IsNull;
+
 
 public class TrackerTest {
 
@@ -63,6 +65,16 @@ public class TrackerTest {
         tracker.add(item);
         Item result = tracker.findById(item.getId());
         assertThat(result.getName(), is(item.getName()));
+    }
+
+    @Test
+    public void whenItemNotExistThenNull() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("test1");
+        tracker.add(item);
+        tracker.delete(item.getId());
+        Item result = tracker.findById(item.getId());
+        assertThat(result, (is(IsNull.nullValue())));
     }
     @Test
     public void whenReplace() {

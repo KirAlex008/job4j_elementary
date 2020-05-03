@@ -37,6 +37,10 @@ public class Tracker {
         }
         return rsl;
     }
+    public Item findById(String id) {
+        int index = indexOf(id);
+        return index != -1 ? items[index] : null;
+    }
 
     public Item[] findAll() {
         return Arrays.copyOf(items, position);
@@ -55,10 +59,7 @@ public class Tracker {
         return forback;
     }
 
-        public Item findById(String id) {
-            int index = indexOf(id);
-            return index != -1 ? items[index] : null;
-        }
+
 
     public boolean replace(String id, Item item) {
         int index = indexOf(id);

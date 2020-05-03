@@ -41,9 +41,10 @@ public class StartUI {
 
     public static void replaceItem(Input input, Tracker tracker) {
         System.out.println("=== Replace Item ====");
-        String name = input.askStr("Enter name: ");
-        Item newItem = new Item(name);
+        String name = input.askStr("Enter a new name of item: ");
         String id = input.askStr("Enter id: ");
+        Item newItem = new Item(name);
+        newItem.setId(id);
         if (tracker.replace(id, newItem)) {
             System.out.println("Replace");
         } else {
