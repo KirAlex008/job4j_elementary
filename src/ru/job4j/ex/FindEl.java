@@ -1,7 +1,7 @@
 package ru.job4j.ex;
 
 public class FindEl {
-    public static int indexOf(String[] value, String key) throws ElementNotFoundExeption {
+    public static int indexOf(String[] value, String key) throws ElementNotFoundException {
         int rsl = -1;
         int i = 0;
         for (String x : value) {
@@ -11,7 +11,7 @@ public class FindEl {
             }
             i++;
             if ((i == value.length - 1) && (rsl == -1)) {
-                throw new ElementNotFoundExeption("The element doesn't exist.");
+                throw new ElementNotFoundException("The element doesn't exist.");
             }
         }
         return rsl;
@@ -21,7 +21,7 @@ public class FindEl {
         try {
             FindEl.indexOf(value, "5");
             System.out.println("The element exists.");
-        } catch (ElementNotFoundExeption e) {
+        } catch (ElementNotFoundException e) {
             e.printStackTrace();
         }
     }
