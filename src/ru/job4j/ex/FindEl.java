@@ -5,14 +5,14 @@ public class FindEl {
         int rsl = -1;
         int i = 0;
         for (String x : value) {
-            if (x == key) {
+            if (x.equals(key)) {
                 rsl = i;
                 break;
             }
             i++;
-            if ((i == value.length - 1) && (rsl == -1)) {
-                throw new ElementNotFoundException("The element doesn't exist.");
-            }
+        }
+        if (rsl == -1) {
+            throw new ElementNotFoundException("The element doesn't exist.");
         }
         return rsl;
     }
