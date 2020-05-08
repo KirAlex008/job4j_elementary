@@ -11,9 +11,9 @@ public class UserStore {
                 break;
             }
             i++;
-            if ((i == users.length - 1) && (rsl == null)) {
-                throw new UserNotFoundException("The User doesn't exist.");
-            }
+        }
+        if (rsl == null) {
+            throw new UserNotFoundException("The User doesn't exist.");
         }
         return rsl;
     }
@@ -28,10 +28,10 @@ public class UserStore {
 
     public static void main(String[] args) {
         User[] users = {
-                new User("Petr Arsentev", true)
+                new User("Pe", true)
         };
         try {
-            User user = findUser(users, "Petr1 Arsentev");
+            User user = findUser(users, "Pe");
                 if (validate(user)) {
                     System.out.println("This user has an access");
                 }
