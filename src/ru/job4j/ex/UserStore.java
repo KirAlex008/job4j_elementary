@@ -4,13 +4,11 @@ public class UserStore {
 
     public static User findUser(User[] users, String login) throws UserNotFoundException {
         User rsl = null;
-        int i = 0;
         for (User x : users) {
             if (x.getUsername().equals(login)) {
-                rsl = users[i];
+                rsl = x;
                 break;
             }
-            i++;
         }
         if (rsl == null) {
             throw new UserNotFoundException("The User doesn't exist.");
@@ -28,10 +26,10 @@ public class UserStore {
 
     public static void main(String[] args) {
         User[] users = {
-                new User("Pe", true)
+                new User("Peter", true)
         };
         try {
-            User user = findUser(users, "Pe");
+            User user = findUser(users, "Peter");
                 if (validate(user)) {
                     System.out.println("This user has an access");
                 }
