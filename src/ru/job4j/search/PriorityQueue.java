@@ -19,12 +19,13 @@ public class PriorityQueue {
         }
         if (tasks.size() >= 1) {
             for (Task element : tasks) {
-                index++;
-                if (task.getPriority() <= element.getPriority() || index == tasks.size()) {
+                if (task.getPriority() < element.getPriority()) {
                    break;
+                } else {
+                    index++;
                     }
                 }
-            this.tasks.add(index - 1, task);
+            this.tasks.add(index, task);
         }
     }
 
