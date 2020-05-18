@@ -17,7 +17,6 @@ public class BankService {
         if (user != null) {
             List<Account> list = users.get(user);
             list.add(account);
-            users.put(user, list);
         }
     }
 
