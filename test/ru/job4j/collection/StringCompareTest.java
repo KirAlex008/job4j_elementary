@@ -65,6 +65,6 @@ public class StringCompareTest {
                 "Patrova",
                 "Patrov"
         );
-        assertThat(rst, lessThan(0));
+        assertThat(rst, greaterThan(0));
     }
 }
