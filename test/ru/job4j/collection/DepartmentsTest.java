@@ -10,7 +10,7 @@ public class DepartmentsTest {
     @Test
     public void whenMissed() {
         List<String> input = Arrays.asList("K1/SK1");
-        List<String> expect = Arrays.asList("K1", "K1/SK1");
+        List<String> expect = Arrays.asList("K1/SK1", "K1");
         List<String> result = Departments.fillGaps(input);
         assertThat(result, is(expect));
     }
@@ -18,7 +18,7 @@ public class DepartmentsTest {
     @Test
     public void whenNonChange() {
         List<String> input = Arrays.asList("K1", "K1/SK1");
-        List<String> expect = Arrays.asList("K1", "K1/SK1");
+        List<String> expect = Arrays.asList("K1/SK1", "K1");
         List<String> result = Departments.fillGaps(input);
         assertThat(result, is(expect));
     }

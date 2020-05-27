@@ -20,10 +20,7 @@ public class Departments {
                 }
             }
         }
-        Set<String> set = tmp;
-        List<String> tmp2 = new ArrayList<>(set);
-        Departments.sortAsc(tmp2);
-        return tmp2;
+        return new ArrayList<>(tmp);
     }
 
     public static List<String> sortAsc(List<String> orgs) {
