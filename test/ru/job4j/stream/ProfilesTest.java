@@ -10,7 +10,8 @@ public class ProfilesTest {
     public void when70to100() {
         List<Profile> addressList = List.of(
                 new Profile("Ivanov", new Address("Kazan", "Mira", 20, 10)),
-                new Profile("Egorov", new Address("Moskva", "Vernadskogo", 120, 17))
+                new Profile("Egorov", new Address("Moskva", "Vernadskogo", 120, 17)),
+                new Profile("Ivanova", new Address("Kazan", "Mira", 20, 10))
         );
         List<Address> result = Profiles.collect(addressList);
         List<Address> expected = List.of(
