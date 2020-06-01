@@ -6,9 +6,8 @@ import java.util.function.Predicate;
 
 public class School {
     public static List<Student> collect(List<Student> students, Predicate<Student> predict) {
-        List<Student> list = students.stream()
-                .filter(student -> predict.test(student))
+        return students.stream()
+                .filter(predict)
                 .collect(Collectors.toList());
-        return list;
     }
 }
