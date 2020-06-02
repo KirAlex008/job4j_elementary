@@ -22,25 +22,25 @@ public class BankServiveStream {
     }
 
     public User findByPassport(String passport) {
-        List<User> list = users.entrySet().stream()
+        Optional<User> first = (users.entrySet().stream()
                 .filter(pass -> pass.getKey().getPassport().equals(passport))
                 .map(pass -> pass.getKey())
-                .collect(Collectors.toList());
-        return list.get(0);
+                .findFirst());
+        return first.get();
     }
 
     public Account findByRequisite(String passport, String requisite) {
-        List<Account> list = new ArrayList<>();
+        Optional<Account> first = null;
         User user = findByPassport(passport);
         if (user != null) {
-            list = users.entrySet().stream()
+            first = users.entrySet().stream()
                     .filter(elem -> elem.getKey().equals(user))
                     .map(elem -> elem.getValue())
                     .flatMap(elem -> elem.stream())
                     .filter((elem -> elem.getRequisite().equals(requisite)))
-                    .collect(Collectors.toList());
+                    .findFirst();
         }
-        return list.get(0);
+        return first.get();
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
