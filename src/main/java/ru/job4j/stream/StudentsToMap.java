@@ -7,7 +7,11 @@ import java.util.Map;
 public class StudentsToMap {
     public static Map<String, Student> collect(List<Student> students) {
         return students.stream()
-                .collect(Collectors.toMap(student -> student.getSurname(), student -> student));
+                .collect(Collectors.toMap(Student::getSurname, student -> student,
+                        (surname1, surname2) -> {
+                        System.out.println("duplicate key found!");
+                        return surname1;
+                }));
     }
 
     public static void main(String[] args) {
