@@ -26,7 +26,7 @@ public class BankServiveStream {
                 .filter(pass -> pass.getKey().getPassport().equals(passport))
                 .map(pass -> pass.getKey())
                 .findFirst());
-        return first.get();
+        return first.orElse(null);
     }
 
     public Account findByRequisite(String passport, String requisite) {
@@ -40,7 +40,7 @@ public class BankServiveStream {
                     .filter((elem -> elem.getRequisite().equals(requisite)))
                     .findFirst();
         }
-        return first.get();
+        return first.orElse(null);
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
