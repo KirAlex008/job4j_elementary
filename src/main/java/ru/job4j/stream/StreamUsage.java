@@ -27,9 +27,9 @@ public class StreamUsage {
                     new Task("Task #2", 100),
                     new Task("Bug #3", 100)
             );
-            List<Task> bugs = tasks.stream().filter(
-                    task -> task.name.contains("Bug")
-            ).collect(Collectors.toList());
+            List<Task> bugs = tasks.stream()
+                    .filter(task -> task.name.contains("Bug"))
+                    .collect(Collectors.toList());
             bugs.forEach(System.out::println);
             List<String> bugs2 = tasks.stream().map(
                     task -> task.name

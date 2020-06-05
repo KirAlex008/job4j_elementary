@@ -33,7 +33,7 @@ public class Student {
         if (o == null || getClass() != o.getClass()) return false;
         Student student = (Student) o;
         return score == student.score &&
-                Objects.equals(surname, student.surname);
+                surname.equals(student.surname);
     }
 
     @Override
