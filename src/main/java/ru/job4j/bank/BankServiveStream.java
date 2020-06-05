@@ -22,9 +22,9 @@ public class BankServiveStream {
     }
 
     public User findByPassport(String passport) {
-        Optional<User> first = (users.entrySet().stream()
-                .filter(pass -> pass.getKey().getPassport().equals(passport))
-                .map(pass -> pass.getKey())
+        ArrayList<User> keyList = new ArrayList<User>(users.keySet());
+        Optional<User> first = (keyList.stream()
+                .filter(pass -> pass.getPassport().equals(passport))
                 .findFirst());
         return first.orElse(null);
     }
@@ -33,10 +33,8 @@ public class BankServiveStream {
         Optional<Account> first = null;
         User user = findByPassport(passport);
         if (user != null) {
-            first = users.entrySet().stream()
-                    .filter(elem -> elem.getKey().equals(user))
-                    .map(elem -> elem.getValue())
-                    .flatMap(elem -> elem.stream())
+            ArrayList<Account> valueList = new ArrayList<Account>(users.get(user));
+            first = valueList.stream()
                     .filter((elem -> elem.getRequisite().equals(requisite)))
                     .findFirst();
         }
