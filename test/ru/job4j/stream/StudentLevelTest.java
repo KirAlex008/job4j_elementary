@@ -33,9 +33,27 @@ public class StudentLevelTest {
     @Test
     public void whenHasNull() {
         List<Student> input = new ArrayList<>();
-        input.add( null);
+        input.add(null);
         input.add(new Student("Pety",28));
         List<Student> expected = List.of(new Student("Pety",28));
         assertThat(StudentLevel.levelOf(input, 10), is(expected));
+    }
+
+    @Test
+    public void whenBoundIs30() {
+        List<Student> input = new ArrayList<>();
+        input.add(new Student("Pety",128));
+        input.add(new Student("Masha",28));
+        List<Student> expected = List.of(new Student("Pety",128));
+        assertThat(StudentLevel.levelOf(input, 30), is(expected));
+    }
+
+    @Test
+    public void whenBoundIs130() {
+        List<Student> input = new ArrayList<>();
+        input.add(new Student("Pety",128));
+        input.add(new Student("Masha",28));
+        List<Student> expected = List.of();
+        assertThat(StudentLevel.levelOf(input, 130), is(expected));
     }
 }
